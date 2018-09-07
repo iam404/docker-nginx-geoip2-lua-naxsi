@@ -9,5 +9,12 @@ geoip2 /tmp/geoip/GeoLite2-Country.mmdb {
  # And source IP is added in real_ip header
  # $geoip2_data_country_code default=US source=$http_x_real_ip country iso_code;
 
+ # Use below if your Nginx is behind AWS Classic ELB with http/https protocol.
+ # https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/x-forwarded-headers.html
+ # 
+ # $geoip2_data_country_code default=US source=$http_x_forwarded_for country iso_code;
+ 
+ 
   $geoip2_data_country_name country names en;
+
 }
