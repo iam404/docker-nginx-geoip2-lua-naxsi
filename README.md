@@ -1,10 +1,13 @@
 # Docker Nginx container built with GeoIP, Lua, Naxsi Module. 
 
-This is a Docker nginx container that includes the MaxMind GeoIP Country database. Update API to download latest GeoIP database. API is running on port 22222. Check config/sites/22222 .
+<br><p>This is a docker Nginx image that includes the MaxMind GeoIP Country database loaded. 
+<br>Update API is available on URL http://[ip]:22222/update_maxmind_db .
+<br>This downloads the latest GeoIP database on fly without need of built new image. See ...config/sites/22222.enabled .</p>
  
- This Image also has Lua module used to download GeoIP2 db.
- 
- Naxsi Module for security.
+<br>
+<br>
+This Image has Lua module and Naxsi Module installed.
+
 
 ## Disclaimer
 
