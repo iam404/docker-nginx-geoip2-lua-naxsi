@@ -1,0 +1,22 @@
+map $geoip2_data_country_code $closest_server {
+  default 172.17.0.2;
+  IN      172.17.0.3;
+}
+
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+    server_name _;
+
+    add_header X-Proxy-Cache $upstream_cache_status;
+        location / {
+            proxy_pass http://$closest_server;
+            proxy_redirect      off;
+            proxy_set_header    Host            $host;
+            proxy_set_header    X-Real-IP       $remote_addr;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+     }
+}
+
+

@@ -1,0 +1,22 @@
+# NGINX CONFIGURATION for Update MaxMind GeoIP
+
+server {
+
+  listen 22222 default_server;
+
+  access_log   /var/log/nginx/22222.access.log;
+  error_log    /var/log/nginx/22222.error.log;
+
+  root /var/www/html;
+
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+  }
+
+  location /update_maxmind_db {
+            content_by_lua 'os.execute("/lib/updateGeoIPdb.sh")';
+    }
+
+    include /etc/nginx/conf.d/*.conf.sites;
+
+}

@@ -1,0 +1,13 @@
+# GeoIP database settings
+
+geoip2 /tmp/geoip/GeoLite2-Country.mmdb {
+  auto_reload 5m;
+
+  $geoip2_data_country_code default=US source=$remote_addr country iso_code;
+
+ # Use below if your Nginx is behind Proxy
+ # And source IP is added in real_ip header
+ # $geoip2_data_country_code default=US source=$http_x_real_ip country iso_code;
+
+  $geoip2_data_country_name country names en;
+}
