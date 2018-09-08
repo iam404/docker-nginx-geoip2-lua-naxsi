@@ -13,8 +13,12 @@ geoip2 /tmp/geoip/GeoLite2-Country.mmdb {
  # https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/x-forwarded-headers.html
  # 
  # $geoip2_data_country_code default=US source=$http_x_forwarded_for country iso_code;
- 
+
+
  
   $geoip2_data_country_name country names en;
 
+  $geoip2_metadata_last_reload metadata last_reload;
+  $geoip2_metadata_last_check metadata last_check;
+  $geoip2_metadata_build_epoch metadata build_epoch;
 }

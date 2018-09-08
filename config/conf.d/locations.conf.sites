@@ -1,4 +1,3 @@
-# NGINX CONFIGURATION FOR COMMON LOCATIONS
 # Basic locations files
 
 location = /favicon.ico {

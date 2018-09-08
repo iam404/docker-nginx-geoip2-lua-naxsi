@@ -9,8 +9,12 @@ server {
 
   root /var/www/html;
 
-  location / {
-    try_files $uri $uri/ /index.php?$args;
+  location /show_metadata {
+        add_header X-GeoIP-last-reload $geoip2_metadata_last_reload;
+        add_header X-GeoIP-last-check $geoip2_metadata_last_check;
+        add_header X-GeoIP-build-epoch $geoip2_metadata_build_epoch;
+
+        return 200;
   }
 
   location /update_maxmind_db {
